@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GUI_arduino.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <HorizontalStackLayout Spacing="20">
+                <Button x:Name="ConnectButton" Text="Připojit" WidthRequest="180" Clicked="ConnectButton_Clicked"/>
+                <Button x:Name="DisconnectButton" Text="Odpojit" WidthRequest="180" Clicked="DisconnectButton_Clicked"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Port:" VerticalOptions="Center"/>
+                <Picker x:Name="PortPicker" WidthRequest="140"/>
+                <Label Text="Baudrate:" VerticalOptions="Center" Padding="10,0,0,0"/>
+                <Picker x:Name="BaudPicker" WidthRequest="105"/>
+            </HorizontalStackLayout>
+
+            <Editor x:Name="CommEntry"
+                    HeightRequest="120"
+                    Placeholder="Zde vlož komunikaci"
+                    AutoSize="TextChanges" />
+
+            <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Čas" FontAttributes="Bold"/>
+                    <HorizontalStackLayout Spacing="10">
+                        <Entry x:Name="HourEntry" Keyboard="Numeric" WidthRequest="50" Placeholder="HH"/>
+                        <Entry x:Name="MinEntry" Keyboard="Numeric" WidthRequest="50" Placeholder="MM"/>
+                        <Entry x:Name="SecEntry" Keyboard="Numeric" WidthRequest="50" Placeholder="SS"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
+                <VerticalStackLayout>
+                    <Label Text="Datum" FontAttributes="Bold"/>
+                    <HorizontalStackLayout Spacing="10">
+                        <Entry x:Name="DayEntry" Keyboard="Numeric" WidthRequest="50" Placeholder="DD"/>
+                        <Entry x:Name="MonthEntry" Keyboard="Numeric" WidthRequest="50" Placeholder="MM"/>
+                        <Entry x:Name="YearEntry" Keyboard="Numeric" WidthRequest="80" Placeholder="YYYY"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <HorizontalStackLayout Spacing="20">
+                <Button x:Name="SendButton" Text="Odeslat do Arduina" WidthRequest="180" Clicked="SendButton_Clicked"/>
+            </HorizontalStackLayout>
+
+            <Editor x:Name="dataview"
+                    HeightRequest="120"
+                    IsReadOnly="True"
+                    Placeholder="Zde se zobrazí log"
+                    AutoSize="TextChanges" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
