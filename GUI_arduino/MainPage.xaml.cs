@@ -2,6 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
+        private arduino_comm _arduino = new();
         public MainPage()
         {
             InitializeComponent();
@@ -12,17 +13,17 @@
 
         private void ConnectButton_Clicked(object sender, EventArgs e)
         {
-
+            _arduino.Connect("COM5", 9600);
         }
 
         private void DisconnectButton_Clicked(object sender, EventArgs e)
         {
-
+            _arduino.Disconnect();
         }
 
         private void SendButton_Clicked(object sender, EventArgs e)
         {
-
+            _arduino.Send(CommEntry.Text);
         }
     }
 }
